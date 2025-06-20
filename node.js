@@ -5,10 +5,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function addTask() {
         const task = input.value.trim();
+        const dueDate = document.getElementById('dueDateInput')?.value || '';
+        const category = document.getElementById('categorySelect')?.value || '';
+        const priority = document.getElementById('prioritySelect')?.value || '';
         if (task === '') return;
 
         const li = document.createElement('li');
-        li.textContent = task;
+        li.innerHTML = `
+            <span>${task}</span>
+            <span style="font-size:0.9em;color:#555;margin-left:8px;">${dueDate ? 'Due: ' + dueDate : ''}</span>
+            <span style="font-size:0.9em;color:#555;margin-left:8px;">${category}</span>
+            <span style="font-size:0.9em;color:#555;margin-left:8px;">${priority}</span>
+        `;
 
         // Optional: Add a remove button
         const removeBtn = document.createElement('button');
@@ -40,4 +48,14 @@ document.addEventListener('DOMContentLoaded', function () {
     input.addEventListener('keydown', function (e) {
         if (e.key === 'Enter') addTask();
     });
+
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function () {
+            document.body.classList.toggle('dark-mode');
+            document.querySelector('.main-container').classList.toggle('dark-mode');
+            document.querySelector('.input-container').classList.toggle('dark-mode');
+        });
+    }
 });

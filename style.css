@@ -1,6 +1,9 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 50%, #a1c4fd 100%);
+    background: 
+        linear-gradient(135deg, #ffecd2 0%, #fcb69f 50%, #a1c4fd 100%),
+        url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -9,12 +12,12 @@ body{
 }
 .main-container{
     text-align: center;
-    width: 300px;
+    width: 450px;           /* Increased width */
     height: auto; 
     background-color: rgb(206, 103, 103);
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    border-radius: 16px;    /* Slightly larger radius */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+    padding: 40px;          /* Increased padding */
 }
 .input-container {
     display: flex;
@@ -49,4 +52,19 @@ body{
 
 .input-container button:hover {
     background-color: #a94442;
+}
+body.dark-mode {
+    background-color: #222 !important;
+    color: #fff;
+}
+.main-container.dark-mode {
+    background-color: #333 !important;
+    color: #fff;
+}
+.input-container.dark-mode input,
+.input-container.dark-mode select,
+.input-container.dark-mode button {
+    background-color: #444;
+    color: #fff;
+    border-color: #888;
 }
